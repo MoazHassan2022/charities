@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ charity.name }}</title>
+</head>
+<body>
+    <div class="main onepage">
+        <div class="container">
+                <div class="horizontal navigate">
+                    <a id ="h" href="{% url 'index' %}">الرئيسية</a>
+                </div>
+                <div class="vertical right exright">
+                        <div class="horizontal new right mright">
+                            <h1>للأسف هذا الرابط منتهي الصلاحية</h1>
+                        </div>
+                </div>
+        </div>
+    </div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
+*{
+    margin:0;
+    padding:0;
+    text-align: right;
+    font-family: "Cairo";
+    transition: all .2s;
+}
+p{
+    text-align: right;
+}
+h1{
+    text-align: right;
+}
+h3{
+    text-align: right;
+}
+a{
+    text-align: right;
+    text-decoration: none;
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+label{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+input{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+html{
+    scroll-behavior: smooth;
+    height: auto;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, dodgerblue, black);
+}
+body{
+    background: none;
+}
+
+.main{
+    width:100%;
+}
+.container{
+    width:80%;
+    height: auto;
+    min-height: 100vh;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(139, 139, 139, 0.466);
+    border-radius: 30px;
+}
+.horizontal{
+    display: flex;
+    flex-direction: row;
+    /*justify-content: left;*/
+}
+.vertical{
+    display:flex;
+    flex-direction: column;
+}
+
+
+.bar{
+    width:100%;
+    height: 30px;
+    margin-bottom: 20px;
+}
+.right{
+    justify-content: right;
+}
+.left{
+    justify-content: left;
+}
+
+/*Navigation bar styling*/
+.navigate{
+    width:100%;
+    height: 30px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid white;
+}
+a:hover{
+    color: black;
+    text-decoration: none;
+}
+.half{
+    width:50%;
+    display: flex;
+    flex-direction: row;
+}
+
+/*Brand space*/
+.brand{
+    height: 300px;
+    width: 80%;
+    margin:5%;
+}
+.brand h1{
+    font-size: 90px;
+    color: white;
+    text-align: right;
+}
+
+
+
+/*Select tag*/
+.custom-select {
+    position: relative;
+    font-family: Arial;
+    width:200px;
+    margin-right: 10px;
+  }
+
+  .custom-select select {
+    display: none; /*hide original SELECT element: */
+  }
+
+  .select-selected {
+    background-color: rgb(30, 144, 255);
+  }
+
+  /* Style the arrow inside the select element: */
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 16px;
+    left: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+  }
+
+  /* Point the arrow upwards when the select box is open (active): */
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+  }
+
+  /* style the items (options), including the selected item: */
+  .select-items div,.select-selected {
+    color: #ffffff;
+    padding: 4px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+  }
+
+  /* Style items (options): */
+  .select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+
+  /* Hide the items when the select box is closed: */
+  .select-hide {
+    display: none;
+  }
+
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+
+/*Search bar*/
+.bar input[type=text]{
+    width: 300px;
+    padding: 12px 20px;
+    margin: 0px 10px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    border-color: transparent;
+    border-radius: 5px;
+}
+.bar input[type=submit]{
+    width: 50px;
+    background-color: dodgerblue;
+    color: white;
+    text-align: center;
+    border-color:white;
+    border-radius: 3px;
+}
+
+
+
+/*Register Page*/
+
+.new h2{
+    font-size: 50px;
+    text-align: right;
+    margin-right: 10px;
+    color:white;
+}
+.regBar{
+    width:100%;
+    height: 70px;
+    margin-bottom: 10px;
+}
+.regBar input[type=text]{
+    width: 300px;
+    padding: 12px 20px;
+    margin: 0px 10px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    border-color: transparent;
+    border-radius: 5px;
+}
+.regBar input[type=email]{
+    width: 300px;
+    padding: 12px 20px;
+    margin: 0px 10px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    border-color: transparent;
+    border-radius: 5px;
+}
+.regBar input[type=password]{
+    width: 300px;
+    padding: 12px 20px;
+    margin: 0px 10px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    border-color: transparent;
+    border-radius: 5px;
+}
+.regBar input[type=submit]{
+    width: 50px;
+    background-color: dodgerblue;
+    color: white;
+    text-align: center;
+    border-color:white;
+    border-radius: 3px;
+}
+
+
+/*Results page*/
+.mright h1{
+    font-size: 45px;
+    margin-right: 20px;
+    color: white;
+}
+.card{
+    width: 20%;
+    height: 300px;
+    margin: 10px 6.66%;
+    background-image: linear-gradient(to bottom, rgb(182, 182, 182), rgb(18, 73, 128));
+    color: black;
+    border-color:transparent;
+    border-radius: 0px;
+    align-items: center;
+}
+.card:hover{
+    transform: scale(1.25);
+    background-image: none;
+    background-color: black;
+    color: white;
+}
+.card a{
+    color: black;
+}
+.card:hover a{
+    color: white;
+}
+.card:hover a:hover{
+    color:dodgerblue;
+}
+.logo{
+    width:100%;
+    height:50%;
+}
+.logo img{
+    height:100%;
+    width:100%;
+    object-fit:cover;
+}
+
+
+/*Charity page*/
+.exright h2{
+    font-size: 30px;
+    margin-right: 20px;
+    color: black;
+}
+.exright p{
+    font-size: 10px;
+    margin-right: 20px;
+}
+.exright h2:hover{
+    font-size: 30px;
+    margin-right: 20px;
+    color: white;
+}
+.exright p:hover{
+    font-size: 10px;
+    margin-right: 20px;
+    color:white;
+}
+</style>
+
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+<style>
+        @media (max-width: 600px){
+
+        *{
+        margin:0;
+        padding:0;
+        text-align: right;
+        font-family: "Cairo";
+        transition: all .2s;
+    }
+    p{
+        text-align: right;
+    }
+    h1{
+        text-align: right;
+    }
+    h3{
+        text-align: right;
+    }
+    a{
+        text-align: right;
+        text-decoration: none;
+        color: white;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    label{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    input{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    html{
+        scroll-behavior: smooth;
+        height: auto;
+        min-height: 100vh;
+        background-image: linear-gradient(to bottom, dodgerblue, black);
+    }
+    body{
+        background: none;
+    }
+
+    .main{
+        width:100vw;
+    }
+    .container{
+        width:100%;
+        height: auto;
+        min-height: 100vh;
+        margin:0;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(139, 139, 139, 0.466);
+    }
+    .horizontal{
+        display: flex;
+        flex-direction: row;
+        /*justify-content: left;*/
+    }
+    .vertical{
+        display:flex;
+        flex-direction: column;
+    }
+
+
+    .bar{
+        width:100%;
+        height: 40px;
+        margin-bottom: 40px;
+    }
+    .right{
+        justify-content: right;
+    }
+    .left{
+        justify-content: left;
+    }
+
+    /*Navigation bar styling*/
+    .navigate{
+        width:100%;
+        height: 30px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid white;
+        justify-content: center
+    }
+    a:hover{
+        color: black;
+        text-decoration: none;
+    }
+    .half{
+        width:50%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    /*Brand space*/
+    .brand{
+        height: 300px;
+        width: 80%;
+        margin:5%;
+    }
+    .brand h1{
+        font-size: 5em;
+        color: white;
+        text-align: right;
+    }
+
+
+
+    /*Select tag*/
+    .custom-select {
+        position: relative;
+        font-family: Arial;
+        width:70vw;
+        max-height: 10px;
+        margin-right: 10px;
+      }
+
+      .custom-select select {
+        display: none; /*hide original SELECT element: */
+      }
+
+      .select-selected {
+        background-color: rgb(30, 144, 255);
+      }
+
+      /* Style the arrow inside the select element: */
+      .select-selected:after {
+        position: absolute;
+        content: "";
+        top: 16px;
+        left: 10px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-color: #fff transparent transparent transparent;
+      }
+
+      /* Point the arrow upwards when the select box is open (active): */
+      .select-selected.select-arrow-active:after {
+        border-color: transparent transparent #fff transparent;
+        top: 7px;
+      }
+
+      /* style the items (options), including the selected item: */
+      .select-items div,.select-selected {
+        color: #ffffff;
+        padding: 4px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        cursor: pointer;
+      }
+
+      /* Style items (options): */
+      .select-items {
+        position: absolute;
+        background-color: DodgerBlue;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+      }
+
+      /* Hide the items when the select box is closed: */
+      .select-hide {
+        display: none;
+      }
+
+      .select-items div:hover, .same-as-selected {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+
+    /*Search bar*/
+    .bar input[type=text]{
+        width: 300px;
+        padding: 12px 20px;
+        margin: 0px 10px;
+        box-sizing: border-box;
+        background-color: white;
+        color: black;
+        border-color: transparent;
+        border-radius: 5px;
+    }
+    .bar input[type=submit]{
+        width: 50px;
+        background-color: dodgerblue;
+        color: white;
+        text-align: center;
+        border-color:white;
+        border-radius: 3px;
+    }
+
+
+
+    /*Register Page*/
+
+    .new h2{
+        font-size: 50px;
+        text-align: right;
+        margin-right: 10px;
+        color:white;
+    }
+    .regBar{
+        width:100%;
+        height: 70px;
+        margin-bottom: 10px;
+    }
+    .regBar input[type=text]{
+        width: 300px;
+        padding: 12px 20px;
+        margin: 0px 10px;
+        box-sizing: border-box;
+        background-color: white;
+        color: black;
+        border-color: transparent;
+        border-radius: 5px;
+    }
+    .regBar input[type=email]{
+        width: 300px;
+        padding: 12px 20px;
+        margin: 0px 10px;
+        box-sizing: border-box;
+        background-color: white;
+        color: black;
+        border-color: transparent;
+        border-radius: 5px;
+    }
+    .regBar input[type=password]{
+        width: 300px;
+        padding: 12px 20px;
+        margin: 0px 10px;
+        box-sizing: border-box;
+        background-color: white;
+        color: black;
+        border-color: transparent;
+        border-radius: 5px;
+    }
+    .regBar input[type=submit]{
+        width: 50px;
+        background-color: dodgerblue;
+        color: white;
+        text-align: center;
+        border-color:white;
+        border-radius: 3px;
+    }
+
+
+    /*Results page*/
+    #mobV{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .mright h1{
+        font-size: 45px;
+        margin-right: 20px;
+        color: white;
+    }
+    .card{
+        width: 300px;
+        height: 350px;
+        margin: 10px 6.66%;
+        background-image: linear-gradient(to bottom, rgb(182, 182, 182), rgb(18, 73, 128));
+        color: black;
+        border-color:transparent;
+        border-radius: 0px;
+        align-items: center;
+    }
+    .card h2{
+        font-size: 35px;
+    }
+    .card p{
+        font-size: 20px;
+    }
+    .card:hover{
+        transform: scale(1.25);
+        background-image: none;
+        background-color: black;
+        color: white;
+    }
+    .card a{
+        color: black;
+    }
+    .card:hover a{
+        color: white;
+    }
+    .card:hover a:hover{
+        color:dodgerblue;
+    }
+    .logo{
+        width:100%;
+        height:50%;
+    }
+    .logo img{
+        height:100%;
+        width:100%;
+        object-fit:cover;
+    }
+
+
+    /*Charity page*/
+    .exright h2{
+        font-size: 30px;
+        margin-right: 20px;
+        color: black;
+    }
+    .exright p{
+        font-size: 10px;
+        margin-right: 20px;
+    }
+    .exright h2:hover{
+        font-size: 30px;
+        margin-right: 20px;
+        color: white;
+    }
+    .exright p:hover{
+        font-size: 10px;
+        margin-right: 20px;
+        color:white;
+    }
+
+    }
+    </style>
+
+</body>
+</html>
